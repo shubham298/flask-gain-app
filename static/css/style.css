@@ -3,7 +3,7 @@ body{
     background-color: #283333;
 }
 .toolbox{
-    height: 100vh;
+    height: 150vh;
     position: absolute;
     background-color: #3e4b4b;
    
@@ -40,7 +40,6 @@ body{
     top: 0px;
 }
 
-
 .toolbox.right{
     right: 0px;
     top: 0px;
@@ -54,8 +53,8 @@ body{
 }
 #canvas{
     position: absolute;
-    top:50%;
-    left:50%;
+    top:20%;
+    left:25%;
     transform: translate(-50%,-50%);
     background-color: white;
 }

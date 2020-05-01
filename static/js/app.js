@@ -1,20 +1,19 @@
 import {
-    TOOL_LINE,
     TOOL_RECTANGLE,
     TOOL_CIRCLE,
     TOOL_TRIANGLE,
-    TOOL_PAINT_BUCKET,
     TOOL_PENCIL,
     TOOL_BRUSH,
     TOOL_ERASER
 } from './tool.js';
 import Paint from './paint.class.js';
 var paint = new Paint("canvas");
-paint.activeTool = TOOL_LINE;
+paint.activeTool = TOOL_PENCIL;
 paint.brushSize = 4
 paint.lineWidth = 1
 paint.selectedColor = "#000000"
 paint.init();
+console.log("16",filename);
 document.querySelectorAll("[data-command]").forEach(
     item => {
         item.addEventListener("click", e => {
@@ -26,14 +25,15 @@ document.querySelectorAll("[data-command]").forEach(
                 var image=canvas.toDataURL("image/png",1.0)
                 .replace("image/png","image/active-stream")
                 var link=document.createElement("a");
-                link.download="semantic.png";
+                link.download=document.getElementById("myName").value;
                 link.href=image;
-                link.click();
-
+                link.click(); 
+                filename=document.getElementById("myName").value;
             }
         })
     }
 )
+console.log("36",filename);
 
 document.querySelectorAll("[data-tool]").forEach(
     item => {
@@ -41,9 +41,9 @@ document.querySelectorAll("[data-tool]").forEach(
             document.querySelector("[data-tool].active").classList.toggle("active");
             item.classList.add("active")
             let selectedTool = item.getAttribute("data-tool")
+            console.log(selectedTool)
             paint.activeTool = selectedTool;
             switch (selectedTool) {
-                case TOOL_LINE:
                 case TOOL_RECTANGLE:
                 case TOOL_CIRCLE:
                 case TOOL_TRIANGLE:
