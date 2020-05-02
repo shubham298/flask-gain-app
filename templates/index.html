@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="group linewidths for-shapes" style="display:block">
-            <div class="item " data-line-width="4" title="4 Pixel">
+            <div class="item active " data-line-width="4" title="4 Pixel">
                 <div class="linewidth" style="width:4px;height:4px"></div>
             </div>
             <div class="item" data-line-width="5" title="5 Pixel">
@@ -52,7 +52,7 @@
             <div class="item" data-line-width="7" title="7 Pixel">
                 <div class="linewidth" style="width:7px;height:7px"></div>
             </div>
-            <div class="item active" data-line-width="8" title="8 Pixel">
+            <div class="item " data-line-width="8" title="8 Pixel">
                 <div class="linewidth" style="width:8px;height:8px"></div>
             </div>
         </div>
@@ -75,48 +75,47 @@
         </div>
     </div>
     <div>
-    Name:<input type="text" name="Name" style="
-    background-color:#283333; padding: 2px;
-    border:#283333;
-    font-size: 1em;
-    color:white;
-    border-bottom-style: solid;
-    border-bottom-color:white;
-    position: absolute;top: 39%;left:7% ;" id="myName" value="semantic.png">
 
-    <button class="start" style="
-    background-color:#283333; padding: 2px;
-    border:#283333;
-    font-size: 1em;
-    color:white;
-    border-bottom-style: solid;
-    border-bottom-color:white;
-    position: absolute;top: 39%;left:25% ;">
-    Generate
-    </button>
-
-    <!-- canvas -->
-        <canvas id="canvas"  width="512" height="256"></canvas>
+    
+<table id="center-content"> 
+<tbody>
+    <tr>
+        <td align="center">
+        <canvas id="canvas" width="512" height="256"></canvas>
+        </td>
+        <td valign="center" align="center">
+            <button class="start butt next" ></button>
+        </td>
+        <td align="center">
+            <div id="message" >
+                <img src="/static/gallery.png"   id="pp"  alt="photogenic image">
+            </div>
+        </td>
+    </tr>
+    
+</tbody>
+</table>
+    
     </div>
 
     <!-- output image -->
-    <div id="message" style="width:512px ;height:256px " >
-        <img src="/static/gallery.png"  id="pp" style="position:absolute; right: 15%;" alt="photogenic image">
-    </div>
+   
     <div class="toolbox right">
         <div class="group swatches">
             <div class="item" data-color="#ffffff" >
-                <div class="swatch" style="background-color: #ffffff; "></div>
-                
+                <div class="swatch" style="background-color: #ffffff; "></div>  
             </div>
             <div class="item active" data-color="#000000" >
-                <div class="swatch" style="background-color: #000000; "></div>
+                <div class="swatch" style="background-color: #000000; ">
+            
+                </div>
             </div>
             <div class="item" data-color="#ff0000" >
                 <div class="swatch" style="background-color: #ff0000; "></div>
             </div>
-            <div class="item" data-color="#00ff00" >
-                <div class="swatch" style="background-color: #00ff00; "></div>
+            <div class="item" data-color="Fog" >
+                <div class="swatch" style="background-color: rgb(119, 186, 29); ">
+                </div>
             </div>
             <div class="item" data-color="#0000ff" >
                 <div class="swatch" style="background-color:#0000ff; "></div>
@@ -129,7 +128,27 @@
             </div>
         </div>
     </div>
-
+<table class="table" id="gallery">
+    <tbody>
+        <tr>
+            <th>
+                <button id="example0" class="btn style0"></button>
+            </th>
+            <th>
+                <button id="example1" class="btn style1"></button>
+            </th>
+            <th>
+                <button id="example2" class="btn style2"></button>
+            </th>
+            <th>
+                <button id="example3" class="btn style3"></button>
+            </th>
+            <th>
+                <button id="example4" class="btn style4"></button>
+            </th>
+        </tr>
+    </tbody>
+</table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script type="text/javascript">
@@ -143,18 +162,7 @@
         $( function() {
             $( ".start" ).click(function() {
                 
-                function download(){
-                var canvas=document.getElementById("canvas");
-                var image=canvas.toDataURL("image/png",1.0)
-                .replace("image/png","image/active-stream")
-                var link=document.createElement("a");
-                link.download=document.getElementById("myName").value;
-                link.href=image;
-                link.click(); 
-                filename=document.getElementById("myName").value;
-                return filename
-                }
-                
+            
                // filename=download();
                 op_data={
                     'filename':filename,

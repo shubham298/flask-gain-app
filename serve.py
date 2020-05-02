@@ -18,7 +18,7 @@ def sum_num():
     print("Data Recieved from front-End",data)
     data_dic=json.loads(data)
     resp_dic={
-            'img':"mountain.jpeg",
+            'img':"mountain.png",
             'msg':'successful'
             }
     resp = jsonify(resp_dic)
