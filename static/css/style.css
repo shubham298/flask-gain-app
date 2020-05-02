@@ -21,6 +21,9 @@ body{
 .toolbox .group .item:hover,.toolbox .group .item.active{
    background-color: #a16ee4;
 }
+table tbody tr th.active{
+    box-shadow: 15px 8px 15px 3px;
+}
 .toolbox .group .item img{
     width: 100%;
     filter:invert();
@@ -63,7 +66,7 @@ body{
 }
 #pp{
     display: block;
-    margin: 30px 0px 0px 150px;
+    margin: 30px 0px 0px 50px;
     border-radius: 5px;
     height: 256px;
     width: 512px;
@@ -83,14 +86,15 @@ body{
     padding: 2px;
 }
 .next{
-    background-image: url("../images/arrow.svg");
+    background-image: url("../images/Next-icon.png");
     height: 48px;
     width: 48px;
+    margin: 0px 0px 0px 60px;
     background-size: 100%;
 }
 .table{
     position: absolute;
-    bottom:30%;
+    bottom:15%;
     left:10%;
     width: 60px;
     border-width: 1px;

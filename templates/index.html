@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script type='text/javascript'type="module" defer > 
         var filename = ''; 
+        var style_index = '';
       </script>
     <script src="/static/js/app.js" type="module" defer></script>
     <title>Generation of Photo Realistic Image using GAN and SPADE</title>
@@ -88,7 +89,7 @@
         </td>
         <td align="center">
             <div id="message" >
-                <img src="/static/gallery.png"   id="pp"  alt="photogenic image">
+                <img src="/static/gallery.png" id="pp"alt="photogenic image">
             </div>
         </td>
     </tr>
@@ -131,19 +132,19 @@
 <table class="table" id="gallery">
     <tbody>
         <tr>
-            <th>
-                <button id="example0" class="btn style0"></button>
+            <th data-style="0" class="active">
+                <button id="example0" class="btn style0 "></button>
             </th>
-            <th>
+            <th data-style="1">
                 <button id="example1" class="btn style1"></button>
             </th>
-            <th>
+            <th data-style="2">
                 <button id="example2" class="btn style2"></button>
             </th>
-            <th>
+            <th data-style="3">
                 <button id="example3" class="btn style3"></button>
             </th>
-            <th>
+            <th data-style="4">
                 <button id="example4" class="btn style4"></button>
             </th>
         </tr>
@@ -151,7 +152,10 @@
 </table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
+
     <script type="text/javascript">
+
+
         var server = "http://127.0.0.1:5000";
 
         var op_data= {
@@ -162,11 +166,11 @@
         $( function() {
             $( ".start" ).click(function() {
                 
-            
+            console.log("html",style_index)
                // filename=download();
                 op_data={
                     'filename':filename,
-                    'style_image':1
+                    'style_image':style_index
                 }
                
                 var appdir='/gan';

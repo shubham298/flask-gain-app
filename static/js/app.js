@@ -11,6 +11,7 @@ var paint = new Paint("canvas");
 paint.activeTool = TOOL_PENCIL;
 paint.brushSize = 4
 paint.lineWidth = 4
+
 paint.selectedColor = "#000000"
 paint.init();
 
@@ -78,6 +79,18 @@ document.querySelectorAll("[data-line-width]").forEach(
             item.classList.add("active")
             let linewidth = item.getAttribute("data-line-width");
             paint.lineWidth = linewidth
+        })
+    }
+)
+
+document.querySelectorAll("[data-style]").forEach(
+    item => {
+        item.addEventListener("click", e => {
+            document.querySelector("[data-style].active").classList.toggle("active");
+            item.classList.add("active")
+             let style_name = item.getAttribute("data-style");
+            style_index = style_name
+            console.log("paint.js",style_index)
         })
     }
 )
