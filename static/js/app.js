@@ -9,10 +9,10 @@ import {
 import Paint from './paint.class.js';
 var paint = new Paint("canvas");
 paint.activeTool = TOOL_PENCIL;
-paint.brushSize = 4
-paint.lineWidth = 4
+paint.brushSize = 10
+paint.lineWidth = 12
 
-paint.selectedColor = "#000000"
+paint.selectedColor = "#9ac6da"
 paint.init();
 
 document.querySelectorAll("[data-command]").forEach(
@@ -90,7 +90,6 @@ document.querySelectorAll("[data-style]").forEach(
             item.classList.add("active")
              let style_name = item.getAttribute("data-style");
             style_index = style_name
-            console.log("paint.js",style_index)
         })
     }
 )
@@ -108,17 +107,51 @@ document.querySelectorAll("[data-brush-width]").forEach(
 
 
 
-document.querySelectorAll("[data-color]").forEach(
+document.querySelectorAll("[data-element]").forEach(
     item => {
         item.addEventListener("click", e => {
-        
-            document.querySelector("[data-color].active").classList.toggle("active");
+            document.querySelector("[data-element].active").classList.toggle("active");
             item.classList.add("active")
 
-            let color = item.getAttribute("data-color");
+            let element = item.getAttribute("data-element");
+            console.log(element)
+            switch (element) {
+                case 'landscape': 
+                    document.querySelector(".group.for-landscape").style.display = "block"
+                    document.querySelector(".group.for-plant").style.display = "none"
+                    break;
+                case 'plant':
+                    document.querySelector(".group.for-landscape").style.display = "none"
+                    document.querySelector(".group.for-plant").style.display = "block"
+                    break;
+                default:
+                    document.querySelector(".group.for-landscape").style.display = "none"
+                    document.querySelector(".group.for-plant").style.display = "none"
+            }
+        })
+    }
+)
+
+document.querySelectorAll("[data-landscape]").forEach(
+    item => {
+        item.addEventListener("click", e => {
+            document.querySelector("[data-landscape].active").classList.toggle("active");
+            item.classList.add("active")
+            let color = item.getAttribute("data-landscape");
             console.log(color)
             paint.selectedColor = color
+        })
+    }
+)
 
+document.querySelectorAll("[data-plant]").forEach(
+    item => {
+        item.addEventListener("click", e => {
+            document.querySelector("[data-plant].active").classList.toggle("active");
+            item.classList.add("active")
+            let color = item.getAttribute("data-plant");
+            console.log(color)
+            paint.selectedColor = color
         })
     }
 )
