@@ -9,8 +9,8 @@ import {
 import Paint from './paint.class.js';
 var paint = new Paint("canvas");
 paint.activeTool = TOOL_PENCIL;
-paint.brushSize = 10
-paint.lineWidth = 12
+paint.brushSize = 18
+paint.lineWidth = 14
 
 paint.selectedColor = "#9ac6da"
 paint.init();
