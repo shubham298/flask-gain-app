@@ -47,7 +47,6 @@ export default class Paint {
         if(this.undoStack.length>=this.undoLimit) {this.undoStack.shift();}//remove first element of array.
         console.log(this.undoStack)
         this.undoStack.push(this.saveData)
-
         this.canvas.onmousemove = e => this.onMouseMove(e);
         document.onmouseup = e => this.onMouseUp(e);
         this.startPo = getMouseCoordsOnCanvas(e, this.canvas);
@@ -66,9 +65,7 @@ export default class Paint {
     }
     onMouseMove(e) {
         this.currentPos = getMouseCoordsOnCanvas(e, this.canvas)
-
         
-
         switch (this.tool) {
             case TOOL_LINE:
             case TOOL_RECTANGLE:

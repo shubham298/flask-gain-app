@@ -14,6 +14,7 @@
     <script  type="text/javascript " defer>
         var filename = '';
         var style_index = '0';
+        var image64="";
     </script>
     <script src="../static/js/app.js" type="module" defer></script>
     <title>Generation of Photo Realistic Image using GAN and SPADE</title>
@@ -25,9 +26,9 @@
             <div class="item" data-command="undo" title="undo">
                 <img src="/static/images/undo.png" alt="undo image">
             </div>
-            <div class="item" data-command="download" title="download">
+            <!-- <div class="item" data-command="download" title="download">
                 <img src="/static/images/download.png" alt="undo image">
-            </div>
+            </div> -->
         </div>
         <div class="group tools">
             <div class="item active" data-tool="pencil" title="Pencil tool">
@@ -238,16 +239,21 @@
         var server = "http://127.0.0.1:5000";
 
         var op_data ;
-
-
         $(function () {
             $(".start").click(function () {
 
-                console.log("html", style_index)
+                var canvas=document.getElementById("canvas");
+                //image in base64
+                
+                image64=canvas.toDataURL("image/png",1.0)     
+
+                console.log("style_index", style_index)
+                console.log(image64)
                 // filename=download();
                 op_data = {
                     'filename': filename,
-                    'style_image': style_index
+                    'style_image': style_index,
+                    'Imagebase64':image64
                 }
 
                 var appdir = '/gan';
